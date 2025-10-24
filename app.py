@@ -4,6 +4,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+# In-memory products list (replace with DB for persistence)
 products = [
     {"id": 1, "name": "Chocolate Cake", "price": 20},
     {"id": 2, "name": "Blueberry Muffin", "price": 5},
@@ -42,4 +43,5 @@ def delete_product(product_id):
     return jsonify({"message": "Product deleted"}), 200
 
 if __name__ == "__main__":
+    # Make sure to run on port 5001 as in your order service
     app.run(host="0.0.0.0", port=5001)
